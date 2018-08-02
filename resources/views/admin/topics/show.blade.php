@@ -5,8 +5,8 @@
         <h1>Вопросы по теме {{ $topic->topic }}</h1>
         <hr>
         <form action="{{ route('admin.topic.destroy', [$topic->id]) }}" method="post">
-            {{ csrf_field() }}
-            {{ method_field('DELETE') }}
+            @csrf
+            @method('DELETE')
             <button type="submit" class="btn btn-danger">Удалить тему</button>
         </form>
 

@@ -8,7 +8,7 @@
                     <div class="card-header">Форма для создания пользователя</div>
                     <div class="card-body">
                         <form role="form" action="{{ route('admin.user.store') }}" method="post">
-                            {{ csrf_field() }}
+                            @csrf
                             <div class="form-group">
                                 <label for="login">Логин</label>
                                 <input type="text" class="form-control" id="login" name="login" required value="{{ old('login') }}">

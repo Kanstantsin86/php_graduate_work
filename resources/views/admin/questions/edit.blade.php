@@ -9,8 +9,8 @@
 
                     <div class="card-body">
                         <form role="form" action="{{ route('admin.question.update', [$question->id]) }}" method="post">
-                            {{ csrf_field() }}
-                            {{ method_field('PUT') }}
+                            @csrf
+                            @method('PUT')
 
                             <div class="form-group">
                                 <label for="authorName">Автор</label>
@@ -65,8 +65,8 @@
                         </form>
                         <hr>
                         <form action="{{ route('admin.question.destroy', [$question->id]) }}" method="post">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
+                            @csrf
+                            @method('DELETE')
                             <button type="submit" class="btn btn-danger">Удалить вопрос</button>
                         </form>
                     </div>

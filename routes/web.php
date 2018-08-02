@@ -19,10 +19,12 @@ Route::resource('question', 'QuestionController', ['only' => [
 ]]);
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-       Route::resource('question', 'Admin\QuestionController', ['only' => ['edit', 'update', 'destroy']]);
-       Route::resource('user', 'Admin\UserController', ['except' => ['show']]);
-       Route::get('/home', 'Admin\HomeController@index')->name('home');
-       Route::resource('topic', 'Admin\TopicController', ['except' => ['edit', 'update']]);
+    Route::group(['namespace' => 'Admin'], function() {
+        Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+           Route::resource('question', 'QuestionController', ['only' => ['edit', 'update', 'destroy']]);
+           Route::resource('user', 'UserController', ['except' => ['show']]);
+           Route::get('/home', 'HomeController@index')->name('home');
+           Route::resource('topic', 'TopicController', ['except' => ['edit', 'update']]);
+        });
     });
 });

@@ -8,8 +8,8 @@
                     <div class="card-header">Форма для изменения пароля</div>
                     <div class="card-body">
                         <form role="form" action="{{ route('admin.user.update', [$user->id]) }}" method="post">
-                            {{ csrf_field() }}
-                            {{ method_field('PUT') }}
+                            @csrf
+                            @method('PUT')
                             <div class="form-group">
                                 <label for="userPassword">Новый пароль</label>
                                 <input type="password" class="form-control" id="userPassword" name="password" required>

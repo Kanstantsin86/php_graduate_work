@@ -8,7 +8,7 @@
                     <div class="card-header">Форма для создания вопроса</div>
                     <div class="card-body">
                         <form role="form" action="{{ route('question.store') }}" method="post">
-                            {{ csrf_field() }}
+                            @csrf
                             <div class="form-group">
                                 <label for="authorName">Ваше имя</label>
                                 <input type="text" class="form-control" id="authorName" name="author" required value="{{ old('author') }}">

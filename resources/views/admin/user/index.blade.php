@@ -24,8 +24,8 @@
                         <a class="btn btn-info" href="{{ route('admin.user.edit', [$user->id]) }}" role="button">Изменить пароль</a>
                         @if (count($users) != 1)
                             <form action="{{ route('admin.user.destroy', [$user->id]) }}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
+                                @csrf
+                                @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Удалить</button>
                             </form>
                         @endif
